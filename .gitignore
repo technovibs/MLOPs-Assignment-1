@@ -3,88 +3,35 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
+# Virtual environments
+.venv/
+venv/
+env/
 
 # Unit test / coverage
-.coverage
 .pytest_cache/
-htmlcov/
+.coverage
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# MLflow
+# MLflow / artifacts
 mlruns/
 .mlflow/
-mlflow.db
-
-# Model artifacts
 models/*.pkl
 models/*.joblib
 models/*.h5
 models/*.onnx
 
-# Data
+# Data files
 data/raw/
-data/processed/
 *.csv
 
-# Jupyter
+# Jupyter notebooks
 .ipynb_checkpoints/
-*.ipynb_checkpoints
 
-# Artifacts
-artifacts/
-screenshots/
-logs/
-
-# Docker
-*.log
-
-# OS
+# IDE / OS
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
 
-# Temporary files
-*.tmp
-*.temp
+# Logs
+*.log

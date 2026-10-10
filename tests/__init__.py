@@ -1,5 +1,1 @@
-"""
-Unit tests for MLOps assignment
-"""
-
-__all__ = []
+"""Unit tests for MLOps assignment."""

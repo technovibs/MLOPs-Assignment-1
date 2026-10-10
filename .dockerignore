@@ -1,0 +1,21 @@
+# Ignore git metadata and local environment
+.git
+.venv
+venv
+__pycache__
+.pytest_cache
+.coverage
+mlruns
+.mlflow
+.ipynb_checkpoints
+
+# Ignore notebooks and generated data for local builds
+notebooks/
+*.csv
+artifacts/
+logs/
+
+# Ignore IDE files
+.vscode/
+.idea/
+.DS_Store

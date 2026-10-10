@@ -1,6 +1,4 @@
-"""
-Pydantic schemas for request and response validation
-"""
+"""Pydantic schemas for heart disease prediction API."""
 
 from typing import Optional
 
@@ -8,23 +6,24 @@ from pydantic import BaseModel, Field
 
 
 class PatientData(BaseModel):
-    """Patient health data for heart disease prediction."""
-    age: int = Field(..., ge=18, le=120, description="Age of the patient")
-    sex: int = Field(..., ge=0, le=1, description="Sex (0: Female, 1: Male)")
-    cp: int = Field(..., ge=0, le=3, description="Chest pain type")
-    trestbps: int = Field(..., ge=80, le=250, description="Resting blood pressure")
-    chol: int = Field(..., ge=0, le=600, description="Serum cholesterol")
-    fbs: int = Field(..., ge=0, le=1, description="Fasting blood sugar")
-    restecg: int = Field(..., ge=0, le=2, description="Resting ECG result")
-    thalach: int = Field(..., ge=60, le=220, description="Maximum heart rate achieved")
-    exang: int = Field(..., ge=0, le=1, description="Exercise induced angina")
-    oldpeak: float = Field(..., ge=0, le=10, description="ST depression")
-    slope: int = Field(..., ge=0, le=2, description="Slope of ST segment")
-    ca: float = Field(..., ge=0, le=4, description="Number of major vessels")
-    thal: int = Field(..., ge=0, le=3, description="Thalassemia")
+    """Input schema for patient attributes."""
 
-    class Config:
-        schema_extra = {
+    age: int = Field(..., ge=18, le=120)
+    sex: int = Field(..., ge=0, le=1)
+    cp: int = Field(..., ge=0, le=3)
+    trestbps: int = Field(..., ge=80, le=250)
+    chol: int = Field(..., ge=0, le=600)
+    fbs: int = Field(..., ge=0, le=1)
+    restecg: int = Field(..., ge=0, le=2)
+    thalach: int = Field(..., ge=60, le=220)
+    exang: int = Field(..., ge=0, le=1)
+    oldpeak: float = Field(..., ge=0.0, le=10.0)
+    slope: int = Field(..., ge=0, le=2)
+    ca: float = Field(..., ge=0.0, le=4.0)
+    thal: int = Field(..., ge=0, le=3)
+
+    model_config = {
+        "json_schema_extra": {
             "example": {
                 "age": 63,
                 "sex": 1,
@@ -41,17 +40,20 @@ class PatientData(BaseModel):
                 "thal": 6,
             }
         }
+    }
 
 
 class PredictionResponse(BaseModel):
-    """API response for the prediction endpoint."""
-    prediction: int = Field(..., ge=0, le=1)
+    """API response for predictions."""
+
+    prediction: int
     risk_label: str
-    confidence: float = Field(..., ge=0, le=1)
+    confidence: float
 
 
-class HealthCheckResponse(BaseModel):
-    """System health response."""
+class HealthResponse(BaseModel):
+    """System health check response."""
+
     status: str
     model_loaded: bool
     version: Optional[str] = None

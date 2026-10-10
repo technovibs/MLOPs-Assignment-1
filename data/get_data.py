@@ -1,8 +1,4 @@
-"""
-Data acquisition script for the Heart Disease UCI dataset.
-Downloads the dataset from the UCI ML repository, saves the raw CSV files,
-and prepares it for training and modeling.
-"""
+"""Data acquisition for Heart Disease UCI Dataset."""
 
 from pathlib import Path
 
@@ -10,7 +6,7 @@ import pandas as pd
 from ucimlrepo import fetch_ucirepo
 
 
-def download_data(output_dir: str = "data/raw") -> tuple[pd.DataFrame, pd.Series]:
+def download_data(output_dir: str = "data/raw"):
     """Download and save the Heart Disease dataset."""
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -20,6 +16,7 @@ def download_data(output_dir: str = "data/raw") -> tuple[pd.DataFrame, pd.Series
     features = heart_disease.data.features
     targets = heart_disease.data.targets
 
+    # Convert multiclass target to binary classification.
     binary_target = targets["num"].apply(lambda x: 1 if x > 0 else 0)
 
     features.to_csv(output_path / "features.csv", index=False)
@@ -42,8 +39,6 @@ def load_data(features_path: str = "data/raw/features.csv", target_path: str = "
 
 
 if __name__ == "__main__":
-    features, target = download_data()
+    _, target = download_data()
     print("\nClass distribution:")
     print(target.value_counts())
-    print("\nProportion:")
-    print(target.value_counts(normalize=True))

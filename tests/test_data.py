@@ -1,4 +1,4 @@
-"""Unit tests for data processing and model logic."""
+"""Unit tests for data processing and validation."""
 
 from pathlib import Path
 
