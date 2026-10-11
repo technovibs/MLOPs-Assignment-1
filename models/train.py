@@ -1,4 +1,4 @@
-!pip install ucimlrepo mlflow
+
 
 import os
 import mlflow
