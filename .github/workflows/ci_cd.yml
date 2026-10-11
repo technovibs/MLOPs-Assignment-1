@@ -40,7 +40,7 @@ jobs:
         docker build -t heart-disease-api:latest .
         
     - name: Archive Model Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: model-artifacts
         path: models/best_model_pipeline.pkl
