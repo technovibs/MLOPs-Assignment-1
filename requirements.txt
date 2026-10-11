@@ -10,3 +10,4 @@ matplotlib
 pytest
 prometheus-fastapi-instrumentator
 joblib
+httpx
