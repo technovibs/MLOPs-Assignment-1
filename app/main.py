@@ -55,10 +55,4 @@ def predict(patient: PatientData):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
       
-  @app.get("/")
-def read_root():
-    return {
-        "message": "Welcome to the Heart Disease Prediction API!",
-        "documentation": "/docs",
-        "metrics": "/metrics"
-    }
+ 
